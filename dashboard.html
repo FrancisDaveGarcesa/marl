@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <style type="text/css">
+            /* General styles */
+body {
+    background-color: lightblue;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+
+}
+
+.dashboard {
+    display: flex;
+    height: 100vh;
+    width: 100%;
+    overflow-x: hidden;
+    background-color: blue;
+}
+
+.sidebar {
+    background-color: darkcyan;
+    width: 250px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.profile-pic {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    border: 3px solid #007bff;
+}
+
+.profile-name {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    width: 100%;
+    
+}
+
+nav ul li {
+    padding: 10px;
+    text-align: left;
+    background-color: #ddd;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+
+nav ul li:hover {
+    background-color: #bbb;
+}
+
+.content {
+    flex-grow: 1;
+    padding: 20px;
+    background-color:darkblue;
+}
+
+.charts {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.pie-chart,
+.line-chart {
+    width: 45%;
+    height: 330px;
+    background-color: #eaeaea;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+}
+
+    </style>
+</head>
+<body>
+    <div class="dashboard">
+        <aside class="sidebar">
+            <div class="profile-section">
+                <a href="Index.html"><img src="logo.jpg" alt="Profile Picture" class="profile-pic"></a>
+                <span class="profile-name">Kinsako</span>
+            </div>
+            <nav>
+                <ul>
+                      <li style="border-radius: 15px;"><span>🏠</span> Dashboard</li> <!-- Dashboard link -->
+                      <li style="border-radius: 15px;"><span>📢</span> Announcement</li> <!-- Announcement link -->
+                      <li style="border-radius: 15px;"><span>📚</span> My Courses</li> <!-- My Courses link -->
+                      <li style="border-radius: 15px;"><span>⏳</span> Study Load</li> <!-- Study Load link -->
+                      <li style="border-radius: 15px;"><span>👤</span> Accounts</li> <!-- Accounts link -->
+                      <li style="border-radius: 15px;"><span>📑</span> Grades</li> 
+                </ul>
+            </nav>
+        </aside>
+        <main class="content">
+            <h1>Overview</h1>
+            <div class="charts">
+                <div class="pie-chart">
+                    <img src="Pie Chart Graph.jpg" style="position: absolute; top: 117px; left: 365px; width: 400px; height: 300px";>
+                </div>
+                <div class="pie-chart">
+                    <img src="Bar.jpg" style="position: absolute; top: 117px; left: 880px; width: 400px; height: 300px";>
+                </div>
+        </main>
+    </div>
+</body>
+</html>
+
+
+    <script src="script.js">
+        // Select the sidebar and toggle button
+const sidebar = document.getElementById('sidebar');
+const toggleButton = document.getElementById('toggle-button');
+
+// Add event listener to toggle the sidebar
+toggleButton.addEventListener('click', () => {
+    sidebar.classList.toggle('collapsed');
+});
+
+    </script>
+</body>
+</html>

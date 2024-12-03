@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Header with Slideshow</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <style type="text/css">
+    /* styles.css */
+    body {
+      margin: 0;
+      font-family: Times New Roman, sans-serif;
+      background-color: darkblue;
+    }
+
+    .main-header {
+      background-color: #0056a6;
+      color: white;
+      padding: 10px 20px;
+    }
+
+    .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo-section {
+      display: flex;
+      align-items: center;
+    }
+
+    .web-logo {
+      height: 40px;
+      margin-right: 10px;
+    }
+
+    .website-name {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+    .nav a {
+      color: white; /* Text color for navigation links */
+      text-decoration: none; /* Remove underline from links */
+      margin: 0 15px; /* Space between navigation links */
+      font-size: 14px; /* Font size for navigation links */
+    }
+
+    .nav a:hover {
+      text-decoration: underline; 
+     }
+    .nav-icons {
+      display: flex;
+      align-items: center;
+    }
+
+    .logout-button {
+      background-color: white;
+      color: #0056a6;
+      border: none;
+      padding: 5px 15px;
+      font-size: 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .logout-button:hover {
+      background-color: #e0e0e0;
+    }
+
+    .search-icon {  
+      margin-left: 800px;
+      left: 200px;
+      color: white;
+      text-decoration: none;
+      font-size: 1rem;
+    }
+
+    /* Slideshow styles */
+    .slideshow-container {
+      max-width: 1400px;
+      position: relative;
+      margin: auto;
+      margin-top: 15px;
+      border-radius: 5px;
+    }
+
+    .mySlides {
+      display: none;
+    }
+
+    .prev, .next {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      width: auto;
+      padding: 16px;
+      margin-top: -22px;
+      color: white;
+      font-weight: bold;
+      font-size: 18px;
+      transition: 0.6s ease;
+      border-radius: 0 3px 3px 0;
+      user-select: none;
+    }
+
+    .next {
+      right: 0;
+      border-radius: 3px 0 0 3px;
+    }
+
+    .prev:hover, .next:hover {
+      background-color: rgba(0,0,0,0.8);
+    }
+
+    .text {
+      color: #f2f2f2;
+      font-size: 15px;
+      padding: 8px 12px;
+      position: absolute;
+      bottom: 8px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .numbertext {
+      color: #f2f2f2;
+      font-size: 12px;
+      padding: 8px 12px;
+      position: absolute;
+      top: 0;
+    }
+
+    .dot {
+      cursor: pointer;
+      height: 15px;
+      width: 15px;
+      margin: 0 2px;
+      background-color: #bbb;
+      border-radius: 50%;
+      display: inline-block;
+      transition: background-color 0.6s ease;
+    }
+
+    .active, .dot:hover {
+      background-color: #717171;
+    }
+
+    @keyframes fade {
+      from {opacity: .4} 
+      to {opacity: 1}
+    }
+    
+	 * {
+	    box-sizing: border-box;
+	    text-align: center;
+	}
+
+		body {
+		    background-color: darkcyan;
+		    font-family: Arial, sans-serif;
+		    margin: 0;
+		    padding: 0;
+		}
+
+	#img1, #img2, #img3, #img4, #img5, #img6 {
+	    background-color: ghostwhite;
+	    box-shadow: 3px 3px 13px 3px #ddd;
+	    width: 370px; /* Set the same width for all images */
+	    height: 450px; /* Set the same height for all images */
+	    margin-top: 20px;
+	    border-radius: 20px;
+	    position: relative;
+	    display: inline-block;
+	    margin-left: 30px;
+	    transition: transform 0.3s ease-in-out;
+	    overflow: hidden; /* Ensures that the image doesn't overflow the container */
+	    text-align: center; /* Centers the text horizontally */
+    	padding: 10px
+}
+
+#img1:hover, #img2:hover, #img3:hover, #img4:hover, #img5:hover, #img6:hover {
+	    transform: translateY(-5px);
+	    box-shadow: 3px 3px 10px 5px rgba(0, 0, 0, 0.1);
+	}
+
+#img1 img, #img2 img, #img3 img, #img4 img, #img5 img, #img6 img {
+	    width: 80%;  /* Make the image smaller */
+	    height: auto; /* Maintain aspect ratio */
+	    object-fit: contain; /* Ensure image is contained within the box */
+	    border-radius: 10px; /* Keep the same border-radius for the image */
+	    margin-bottom: 15px;
+}
+
+h2 {
+    color: #333;
+    text-align: justify;
+    font-size: 20px;
+    margin-top: 15px;
+    font-weight: bold;
+    text-align: center;
+}
+
+ul {
+    padding-left: 20px;
+    color: #555;
+    font-size: 14px;
+    text-align: center;
+}
+
+ul li {
+    margin-bottom: 10px;
+ 
+}
+
+#images {
+    display: block;
+    
+    height: 15px;
+    transition: transform 0.3s ease;
+}
+
+#images:hover {
+    transform: scale(1.1);
+}
+
+
+#book {
+	width: 150px;
+	margin-left: 50px;
+	margin-top: 30px;
+	border-radius: 10px;
+	display: block;
+	transition: transform 0.3s ease;
+	} 
+
+#book:hover {
+	transform: scale(1.1);
+		}
+
+#course,{
+	 height: 200px;
+	 width: 300px;
+	 margin-left: 25px;
+	 margin-top: 10px;
+	 box-shadow: 3px 3px 3px 3px #ddd;
+	 border-radius: 20px;
+	 transition: transform 0.3s ease;
+		}
+
+    #educ{
+      height: 200px;
+   width: 300px;
+   margin-left: 25px;
+   margin-bottom: 10px;
+   box-shadow: 3px 3px 3px 3px #ddd;
+   border-radius: 20px;
+   transition: transform 0.3s ease;
+    }
+    #tutor{
+      height: 200px;
+   width: 300px;
+   margin-left: 25px;
+   margin-top: 10px;
+   box-shadow: 3px 3px 3px 3px #ddd;
+   border-radius: 20px;
+   transition: transform 0.3s ease;
+    }
+    #online{
+     height: 200px;
+   width: 300px;
+   margin-left: 25px;
+   margin-top: 10px;
+   box-shadow: 3px 3px 3px 3px #ddd;
+   border-radius: 20px;
+   transition: transform 0.3s ease; 
+    }
+
+    #member{
+       height: 200px;
+   width: 300px;
+   margin-left: 25px;
+   margin-top: 10px;
+   box-shadow: 3px 3px 3px 3px #ddd;
+   border-radius: 20px;
+   transition: transform 0.3s ease;
+    }
+    #other{
+      height: 200px;
+   width: 300px;
+   margin-left: 25px;
+   margin-top: 10px;
+   box-shadow: 3px 3px 3px 3px #ddd;
+   border-radius: 20px;
+   transition: transform 0.3s ease;
+    }
+
+#bed:hover, #food:hover, #housekeeping:hover, #hall:hover, #member:hover, #other:hover {
+	transform: translateY(-5px);
+	box-shadow: 3px 3px 10px 5px rgba(0, 0, 0, 0.1);
+		}
+
+#prof {
+	position: absolute;
+	height: 40px;
+	margin-left: 1740px;
+	margin-top: -30px;
+		}
+
+#ytube{
+	border-radius: 20px;
+	margin-left: 10px;
+	margin-top: 20px;
+	align-items: center;
+
+}
+
+#map{
+	border-radius: 20px;
+	margin-left: 20px;
+	margin-top: 20px;
+	height: 300px;
+}
+
+.vid{
+	border-radius: 30px;
+	background-color: white;
+	width: 600px;
+	height: 350px;
+	margin-top: 250px;
+	margin-left: 300px;
+	box-shadow: 3px 3px 13px 3px black;
+}
+
+.mapa{
+	position: absolute;
+	background-color: white;
+	width: 600px;
+	height: 350px;
+	border-radius: 20px;
+	margin-left: 950px;
+	margin-top: -350px;
+	box-shadow: 3px 3px 13px 3px black;
+}
+
+#clickR{
+	height: 80px;
+	margin-left: 100px;
+}
+
+#clickL{
+	margin-top: -17px;
+	height: 80px;
+	margin-left: 900px;
+}
+
+/*//--pinaka last nani na part--//*/
+#contact {
+  background-color: #f0d5bb;
+  padding: 20px;
+  text-align: center;
+}
+
+h1 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #333;
+}
+
+/* Social Media Icons */
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.fa {
+  font-size: 30px;
+  width: 30px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;
+  border-radius: 50%;
+}
+
+.fa:hover {
+    opacity: 0.7;
+}
+
+
+.fa-twitter {
+  background: #55ACEE;
+  color: white;
+}
+
+.fa-google {
+  background: #dd4b39;
+  color: white;
+}
+
+
+.fa-youtube {
+  background: #bb0000;
+  color: white;
+}
+
+.fa-instagram {
+  background: #125688;
+  color: white;
+}
+
+/* Legal Box Styling */
+.legal-box {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 50px;
+  margin: 20px auto;
+  max-width: 900px;
+  text-align: left;
+}
+
+.legal-section {
+  margin-bottom: 20px;
+}
+
+.legal-section h2 {
+  color: #003399;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.legal-section p {
+  font-size: 14px;
+  color: #555;
+}
+
+.legal-section a {
+  color: #007acc;
+  text-decoration: none;
+}
+
+.legal-section a:hover {
+  text-decoration: underline;
+}
+
+/* Footer Text */
+#contact p {
+  font-size: 14px;
+  color: #555;
+  margin-top: 10px;
+
+}
+
+  </style>
+</head>
+<body>
+  <header class="main-header">
+    <div class="container">
+      <div class="logo-section">
+        <img src="logo.jpg" alt="Web Logo" class="web-logo">
+        <span class="website-name">E-Learning</span>
+      </div>
+      <nav class="nav">
+	      <a href="#">Home</a> <!-- Home link -->
+	      <a href="#">About Us</a> <!-- About Us link -->
+	      <a href="#">Courses</a> <!-- Courses link -->
+	      <a href="#">Contact</a> <!-- Contact link -->
+    </nav>
+      <nav class="nav-icons">
+        <input type="text" placeholder="Search" style="position: absolute; top: 20px; left: 1200px; height: 25px; border-radius: 15px;"></input>
+
+        <a href="login.html"><button id="logout-button" class="logout-button">Logout</button></a>
+        
+      </nav>
+    </div>
+  </header>
+
+  <!-- Slideshow -->
+  <div class="slideshow-container">
+    <div class="mySlides fade">
+      <div class="numbertext">1 / 3</div>
+      <img src="STREAM.png" style="width:100%">
+      <div class="text">LMS</div>
+    </div>
+
+    <div class="mySlides fade">
+      <div class="numbertext">2 / 3</div>
+      <img src="Education-Technology.png" style="width:100%">
+      <div class="text">LMS</div>
+    </div>
+
+    <div class="mySlides fade">
+      <div class="numbertext">3 / 3</div>
+      <img src="picture 4.jpg" style="width:100%">
+      <div class="text">LMS</div>
+    </div>
+
+    <a class="prev" onclick="plusSlides(-1)">❮</a>
+    <a class="next" onclick="plusSlides(1)">❯</a>
+  </div>
+
+  <br></br>
+
+  	<div id="img1"><img src="course pic.png" id="course"><br> 
+    <h2 id="text1">Course Enrollments</h2>
+    <ul>
+        <li><strong>Course Categories:</strong> Each subject is organized into specific course categories to help you find your area of interest.</li>
+    </ul>
+    <img src="OIP.jpg" id="images">
+</div>
+
+<div id="img2"><img src="educ 2.jpg" id="educ"><br>
+    <h2>Study Materials</h2>
+    <ul>
+        <li><strong>Online Resources:</strong> These resources are available through the internet and can include e-books, academic journals, video lectures, websites, forums,  offering students and professionals the flexibility to learn and engage from anywhere at any time.</li>
+    </ul>
+    <img src="OIP.jpg" id="images">
+</div>
+
+<div id="img3"><img src="picture 5.jpg" id="tutor"><br>
+    <h2>Learning Support</h2>
+    <ul>
+        <li><strong>Discussion Forums:</strong> Discussion forums are online platforms where students, instructors, and peers can engage in conversations, ask questions, and share insights about course topics..</li>
+    </ul>
+    <img src="OIP.jpg" id="images">
+</div>
+
+<div id="img4"><img src="picture 6.jpg" id="online"><br>
+    <h2>Virtual Classes</h2>
+    <ul>
+        <li><strong>Live Lectures:</strong> These lectures allow students to engage directly with the teacher, ask questions, and participate in discussions as the lesson unfold.</li>
+    </ul>
+    <img src="OIP.jpg" id="images">
+</div>
+
+<div id="img5"><img src="tracking.jpg" id="member"><br>
+    <h2>Progress Tracking</h2>
+    <ul>
+        <li><strong>Learning Milestones:</strong>These milestones mark significant progress in mastering specific skills or concepts and are often tied to assessments, projects, or the completion of certain levels in a course..</li>
+    </ul>
+    <img src="OIP.jpg" id="images">
+</div>
+
+<div id="img6"><img src="lala.jpg" id="other"><br>
+    <h2>Extra-Curricular Activities</h2>
+    <ul>
+        <li><strong>Workshops:</strong>Typically led by experts or instructors, workshops allow participants to actively engage in activities, discussions, and exercises to deepen their understanding of a particular subject.</li>
+    </ul>
+    <img src="OIP.jpg" id="images">
+</div>
+
+<br><br>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/viHILXVY_eU?si=eAByXKzZQ8uNMLIg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+<<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3946.111004019256!2d124.64936741020425!3d8.488586991517499!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x32fff2e7ff6d2ec9%3A0x180566d5585d5301!2sCapitol%20University!5e0!3m2!1sen!2sph!4v1732978969886!5m2!1sen!2sph" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+  <!-- Existing code above... -->
+
+  <div id="contact" style="background-color: darkcyan;">
+  <h1>About Us</h1>
+
+  <!-- Social Media Icons -->
+  <div class="social-icons">
+   <a href="https://x.com/login" class="fa fa-twitter"></a>
+    <a href="https://mail.google.com/mail/u/0/#inbox" class="fa fa-google"></a>
+    <a href="#" class="fa fa-youtube"></a>
+    <a href="#" class="fa fa-instagram"></a>
+
+  </div>
+
+  <!-- Legal Sections in a Single Box -->
+  <div class="legal-box">
+    <div class="legal-section">
+      <h2>Privacy Policy</h2>
+      <p>
+        "We value your privacy and are committed to protecting your personal information. This e-learning platform collects and uses data solely for the purpose of enhancing the user experience, processing course enrollments, and providing personalized learning services. All data is stored securely and will never be shared with third parties without your consent, except as required by law. For more details, please read our full <a href="privacy.html">Privacy Policy</a>."
+      </p>
+    </div>
+
+    <div class="legal-section">
+      <h2>Terms of Service</h2>
+      <p>
+        "By using this e-learning platform, you agree to comply with our terms and conditions. These include adhering to course enrollment policies, respecting deadlines for assignments and exams, and ensuring accurate information is provided during the registration process. We reserve the right to modify these terms at any time, with updates reflected on this page. For further information, please refer to our full <a href="terms.html">Terms of Service</a>."
+      </p>
+    </div>
+
+    <div class="legal-section">
+      <h2>Cookie Policy</h2>
+      <p>
+        "This e-learning platform uses cookies to provide you with a personalized browsing experience. Cookies help us understand how you interact with our site, allowing us to improve course content and overall platform functionality. By continuing to browse, you consent to the use of cookies. To learn more or manage your preferences, see our full <a href="cookies.html">Cookie Policy</a>."
+      </p>
+    </div>
+  </div>
+
+  <a href="index.html"></a>
+  <p>© 2024 LEARNER'S ACADEMY. Ready to enhance your skills? | Contact us: +09355979663</p>
+</div>
+
+
+
+  <!-- Existing code continues... -->
+
+
+
+
+  <script>
+    // Logout button functionality
+    const logoutButton = document.getElementById('logout-button');
+    logoutButton.addEventListener('click', () => {
+      if (logoutButton.textContent === 'Logout') {
+        logoutButton.textContent = 'Logged Out';
+        logoutButton.style.backgroundColor = '#ff4d4d';
+        logoutButton.style.color = 'white';
+      } else {
+        logoutButton.textContent = 'Logout';
+        logoutButton.style.backgroundColor = 'white';
+        logoutButton.style.color = '#0056a6';
+      }
+    });
+
+    // Slideshow functionality
+    let slideIndex = 1;
+    showSlides(slideIndex);
+
+    function plusSlides(n) {
+      showSlides(slideIndex += n);
+    }
+
+    function showSlides(n) {
+      let i;
+      let slides = document.getElementsByClassName("mySlides");
+      if (n > slides.length) {slideIndex = 1}
+      if (n < 1) {slideIndex = slides.length}
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      slides[slideIndex-1].style.display = "block";
+    }
+
+
+  </script>
+</body>
+</html>

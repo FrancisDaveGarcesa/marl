@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Login Form</title>
+    <style>
+        /* General styling for body */
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, #000066, #6699ff);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        /* Login form container */
+        .login-form {
+            background-color: #e6f2ff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 300px;
+            text-align: center;
+        }
+
+        /* Form heading */
+        .login-form h2 {
+            color: #000066;
+            margin-bottom: 15px;
+        }
+
+        /* Labels and inputs */
+        .login-form label {
+            display: block;
+            color: #000066;
+            margin: 10px 0 5px;
+            text-align: left;
+        }
+
+        .login-form input[type="text"], .login-form input[type="password"] {
+            width: 90%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        /* Buttons */
+        .login-btn {
+            background-color: darkblue;
+            border: none;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        .cancel-btn {
+            background-color: darkblue;
+            border: none;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .login-btn:hover {
+            background-color: #ff9800;
+        }
+
+        .cancel-btn:hover {
+            background-color: #e53935;
+        }
+
+        /* Options (remember me and forgot password) */
+        .options {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 10px;
+            font-size: 12px;
+        }
+
+        .options label {
+            color: #000;
+        }
+
+        .options a {
+            color: #000066;
+            text-decoration: none;
+        }
+
+        .options a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-form">
+        <h2>Login Form</h2>
+        <form>
+            <label for="username">Username:</label>
+            <input type="text" id="username" placeholder="Enter Username" required>
+            
+            <label for="password">Password:</label>
+            <input type="password" id="password" placeholder="Enter Password" required>
+            
+            <button type="submit" class="login-btn"><a href="dashboard.html">Login</button>
+            <button type="button" class="cancel-btn">Cancel</button>
+            <div class="options">
+                <input type="checkbox" id="remember">
+                <label for="remember">Remember me</label>
+                <a href="#">Forgot password?</a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
